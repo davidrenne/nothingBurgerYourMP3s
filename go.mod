@@ -1,4 +1,4 @@
-module mp3Converter
+module github.com/davidrenne/nothingBurgerYourMP3s
 
 go 1.19
 
