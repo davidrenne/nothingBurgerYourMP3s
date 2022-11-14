@@ -1,6 +1,6 @@
-# cboMP3
+# nothingBurgerYourMP3s
 
-Tool to re-encode recursively mp3 files to any bitrate.
+Tool to re-encode recursively mp3 files to any bitrate.  I used this to re-encode 2TB of mp3s.
 
 ## Install python dependencies with pip
 
