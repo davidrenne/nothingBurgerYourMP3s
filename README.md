@@ -1,6 +1,6 @@
 # nothingBurgerYourMP3s
 
-Tool to re-encode recursively mp3 files to any bitrate.  I used this to re-encode 2TB of mp3s.
+Tool to re-encode recursively mp3 files to any bitrate.  I used this to re-encode 2TB of mp3s.  It "nothing burgered" 18,966 384kbps MP3 files and went from 2,379,714,605,056 bytes to 1,275,793,204,252 bytes.  There are more files to process still but this is pretty solid right now.
 
 ## Install python dependencies with pip
 
