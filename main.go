@@ -139,6 +139,7 @@ func main() {
 					lockMp3sDone.RLock()
 					if utils.InArray(fileWork, mp3sDone) {
 						log.Println("Skipping: " + fileWork)
+						lockMp3sDone.RUnlock()
 						return
 					}
 					lockMp3sDone.RUnlock()
