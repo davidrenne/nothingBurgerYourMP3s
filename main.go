@@ -130,7 +130,7 @@ func main() {
 	for _, fileToWorkOn := range files {
 		pieces := strings.Split(fileToWorkOn, ".")
 		ext := strings.ToUpper(pieces[len(pieces)-1:][0])
-		if ext == "MP3" {
+		if ext == "MP3" || ext == "FLAC" {
 			processJobs = append(processJobs, processJob{
 				Wg:   &wg,
 				File: fileToWorkOn,

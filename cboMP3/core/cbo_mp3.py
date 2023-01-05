@@ -42,16 +42,28 @@ class CBOMp3:
         :return:
         """
         for mp3_file in mp3_files:
+            if "wip-nothingburger-" in mp3_file:
+                print(mp3_file + "is a previous nothingburger file deleting tmp file")
+                os.remove(dst_mp3)
+                exit(1)
             dst_mp3 = self.generate_tmp_file_location(mp3_file)
+            cmd = ''
+            if ".flac" in mp3_file:
+                cmd = '-c:v copy'
+            else:
+                cmd = '-acodec libmp3lame'
             ff = ffmpy.FFmpeg(
-                inputs={mp3_file: None},
-                outputs={dst_mp3: '-acodec libmp3lame -b:a ' +
+                inputs={mp3_file: ''},
+                outputs={dst_mp3: ' ' + cmd + ' -b:a ' +
                          str(self.bitrate) + 'k'}
             )
+
             try:
                 ff.run()
                 print('File {} enocoded.'.format(dst_mp3))
                 shutil.copyfile(dst_mp3, mp3_file)
+                if ".flac" in mp3_file:
+                    shutil.move(mp3_file, mp3_file.replace(".flac", ".mp3"))
                 print('File {} copied.'.format(mp3_file))
                 os.remove(dst_mp3)
                 print('tmp file {} deleted.'.format(dst_mp3))
@@ -71,9 +83,13 @@ class CBOMp3:
             folder = "\\"
         folders = mp3_file.split(folder)
         song = folders[len(folders) - 1]
+        songPieces = song.split(".")
+        if songPieces[len(songPieces) - 1] == "flac":
+            songPieces[len(songPieces) - 1] = "mp3"
+            song = ".".join([str(x) for x in songPieces])
         folders.pop()
         dst_file = folder.join([str(x) for x in folders])
-        return dst_file + folder + "{}".format("wip-" + song)
+        return dst_file + folder + "{}".format("wip-nothingburger-" + song)
 
 
 if __name__ == "__main__":
