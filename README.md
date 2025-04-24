@@ -2,7 +2,9 @@
 
 Tool to re-encode recursively mp3 files to any bitrate. I used this to re-encode 2TB of mp3s. It "nothing burgered" 18,966 384kbps MP3 files and went from 2,379,714,605,056 bytes to 1,275,793,204,252 bytes. There are more files to process still but this is pretty solid right now.
 
-## Install python dependencies with pip
+<!-- TODO Remove python dependencies, make it all golang-->
+<!-- TODO what it ffmpy and mutagen? -->
+## Install python dependencies with pip 
 
 ```bash
 pip install ffmpy
@@ -34,4 +36,4 @@ This tool will overwrite your files. Make sure you have backups prior to using f
 
 ## Contributing
 
-This program ideally should be a go install, but it has dependencies with python to pass to ffmpeg abstraction which calls either ffmpeg.exe or ffmpeg. Ideally we can just use pure go for this someday.
+This program ideally should be a go install, but it has dependencies with python to pass to ffmpeg abstraction which calls either ffmpeg.exe or ffmpeg. Ideally we can just use pure go for this someday. 
